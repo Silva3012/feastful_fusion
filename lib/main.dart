@@ -1,6 +1,4 @@
-import 'package:feastful_fusion/data/dummy_data.dart';
 import 'package:feastful_fusion/screens/categories_screen.dart';
-import 'package:feastful_fusion/screens/meals_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
@@ -25,7 +23,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
-      home: const Meals(title: "Meals...", meals: dummyMeals),
+      home: const CategoriesScreen(),
     );
   }
 }
