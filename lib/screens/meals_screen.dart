@@ -1,4 +1,5 @@
 import 'package:feastful_fusion/models/meal.dart';
+import 'package:feastful_fusion/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
 
 class MealsScreen extends StatelessWidget {
@@ -12,7 +13,7 @@ class MealsScreen extends StatelessWidget {
     // Store Widget in a variable for conditional rendering
     Widget mealContent = ListView.builder(
       itemCount: meals.length,
-      itemBuilder: (ctx, index) => Text(meals[index].title),
+      itemBuilder: (ctx, index) => MealItem(meal: meals[index]),
     );
 
     //If meals is empty, then the below will be rendered on the UI
