@@ -1,4 +1,4 @@
-import 'package:feastful_fusion/categories_screen.dart';
+import 'package:feastful_fusion/screens/categories_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
