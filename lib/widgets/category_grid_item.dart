@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:feastful_fusion/models/category.dart';
 
 class CategoryGridItem extends StatelessWidget {
-  const CategoryGridItem({super.key, required this.category});
+  const CategoryGridItem(
+      {super.key, required this.category, required this.onPickedCategory});
 
   final Category category;
+  final void Function() onPickedCategory;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onPickedCategory,
       splashColor: Theme.of(context).primaryColorDark,
       borderRadius: BorderRadius.circular(16),
       child: Container(
