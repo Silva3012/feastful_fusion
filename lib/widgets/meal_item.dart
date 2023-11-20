@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
-  const MealItem({super.key, required this.meal});
+  const MealItem(
+      {super.key, required this.meal, required this.onSelectedMealItem});
 
   final Meal meal;
+  final void Function(Meal meal) onSelectedMealItem;
 
   // getters to format complexity and affordability name property
 
@@ -30,7 +32,9 @@ class MealItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: 3,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          onSelectedMealItem(meal);
+        },
         child: Stack(
           children: [
             FadeInImage(
