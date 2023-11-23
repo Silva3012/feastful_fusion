@@ -1,11 +1,14 @@
 import 'package:feastful_fusion/data/dummy_data.dart';
 import 'package:feastful_fusion/models/category.dart';
+import 'package:feastful_fusion/models/meal.dart';
 import 'package:feastful_fusion/screens/meals_screen.dart';
 import 'package:feastful_fusion/widgets/category_grid_item.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
+  const CategoriesScreen({super.key, required this.onToggleFavorite});
+
+  final void Function(Meal meal) onToggleFavorite;
 
   void _pickCategory(BuildContext context, Category category) {
     final filterMeals = dummyMeals
@@ -18,6 +21,7 @@ class CategoriesScreen extends StatelessWidget {
         builder: (context) => MealsScreen(
           title: category.title,
           meals: filterMeals,
+          onToggleFavorite: onToggleFavorite,
         ),
       ),
     );

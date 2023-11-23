@@ -2,9 +2,11 @@ import 'package:feastful_fusion/models/meal.dart';
 import 'package:flutter/material.dart';
 
 class MealDetailsScreen extends StatelessWidget {
-  const MealDetailsScreen({super.key, required this.meal});
+  const MealDetailsScreen(
+      {super.key, required this.meal, required this.onToggleFavorite});
 
   final Meal meal;
+  final void Function(Meal meal) onToggleFavorite;
 
   @override
   Widget build(BuildContext context) {
