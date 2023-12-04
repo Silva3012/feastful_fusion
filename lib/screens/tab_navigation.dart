@@ -1,6 +1,7 @@
 import 'package:feastful_fusion/models/meal.dart';
 import 'package:feastful_fusion/screens/categories_screen.dart';
 import 'package:feastful_fusion/screens/meals_screen.dart';
+import 'package:feastful_fusion/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
 
 class TabNavigation extends StatefulWidget {
@@ -65,6 +66,7 @@ class _TabNavigationState extends State<TabNavigation> {
       appBar: AppBar(
         title: Text(activeScreenTitle),
       ),
+      drawer:  const MainDrawer(),
       body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectedScreen,
