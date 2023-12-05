@@ -1,5 +1,6 @@
 import 'package:feastful_fusion/models/meal.dart';
 import 'package:feastful_fusion/screens/categories_screen.dart';
+import 'package:feastful_fusion/screens/filters_screen.dart';
 import 'package:feastful_fusion/screens/meals_screen.dart';
 import 'package:feastful_fusion/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
@@ -49,10 +50,11 @@ class _TabNavigationState extends State<TabNavigation> {
   }
 
   void _setScreen(String indentifier) {
+    Navigator.of(context).pop();
     if(indentifier == "filters") {
-      
-    } else {
-      Navigator.of(context).pop();
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => const FiltersScreen())
+      );
     }
   }
 
