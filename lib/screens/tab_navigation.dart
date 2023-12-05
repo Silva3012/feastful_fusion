@@ -48,6 +48,14 @@ class _TabNavigationState extends State<TabNavigation> {
     });
   }
 
+  void _setScreen(String indentifier) {
+    if(indentifier == "filters") {
+      
+    } else {
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget activeScreen =
@@ -66,7 +74,9 @@ class _TabNavigationState extends State<TabNavigation> {
       appBar: AppBar(
         title: Text(activeScreenTitle),
       ),
-      drawer:  const MainDrawer(),
+      drawer:  MainDrawer(
+        onSelectedScreen: _setScreen,
+      ),
       body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectedScreen,
