@@ -1,10 +1,12 @@
 import 'package:feastful_fusion/data/dummy_data.dart';
 import 'package:feastful_fusion/models/meal.dart';
+import 'package:feastful_fusion/providers/meals_provider.dart';
 import 'package:feastful_fusion/screens/categories_screen.dart';
 import 'package:feastful_fusion/screens/filters_screen.dart';
 import 'package:feastful_fusion/screens/meals_screen.dart';
 import 'package:feastful_fusion/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 const kInitialFilters = {
   Filter.glutenFree: false,
@@ -78,7 +80,8 @@ class _TabNavigationState extends ConsumerState<TabNavigation> {
 
   @override
   Widget build(BuildContext context) {
-    final availableMeals = dummyMeals.where((meal) {
+    final meals = ref.watch(mealsProvider);
+    final availableMeals = meals.where((meal) {
       if (_selectedFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
         return false;
       }
