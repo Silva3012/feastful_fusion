@@ -14,11 +14,9 @@ class FiltersScreen extends StatefulWidget {
   State<FiltersScreen> createState() {
     return _FiltersScreenState();
   }
-
 }
 
-class _FiltersScreenState extends State<FiltersScreen>{
-
+class _FiltersScreenState extends State<FiltersScreen> {
   var _glutenFreeFilterSet = false;
   var _lactoseFreeFilterSet = false;
   var _vegetarianFilterSet = false;
@@ -30,16 +28,8 @@ class _FiltersScreenState extends State<FiltersScreen>{
       appBar: AppBar(
         title: const Text("Your Filters"),
       ),
-      body: PopScope(
-        onPopInvoked: (didPop) {
-          Navigator.of(context).pop({
-            Filter.glutenFree: _glutenFreeFilterSet,
-            Filter.lactoseFree: _lactoseFreeFilterSet,
-            Filter.vegetarian: _vegetarianFilterSet,
-            Filter.vegan: _veganFilterSet,
-          });
-        },
-        child: Column(children: [
+      body: Column(
+        children: [
           SwitchListTile(
             value: _glutenFreeFilterSet,
             onChanged: (isSwitchSet) {
@@ -61,8 +51,8 @@ class _FiltersScreenState extends State<FiltersScreen>{
             ),
             activeColor: Theme.of(context).colorScheme.tertiary,
             contentPadding: const EdgeInsets.only(left: 34, right: 22),
-            ),
-            SwitchListTile(
+          ),
+          SwitchListTile(
             value: _lactoseFreeFilterSet,
             onChanged: (isSwitchSet) {
               setState(() {
@@ -83,8 +73,8 @@ class _FiltersScreenState extends State<FiltersScreen>{
             ),
             activeColor: Theme.of(context).colorScheme.tertiary,
             contentPadding: const EdgeInsets.only(left: 34, right: 22),
-            ),
-            SwitchListTile(
+          ),
+          SwitchListTile(
             value: _vegetarianFilterSet,
             onChanged: (isSwitchSet) {
               setState(() {
@@ -105,8 +95,8 @@ class _FiltersScreenState extends State<FiltersScreen>{
             ),
             activeColor: Theme.of(context).colorScheme.tertiary,
             contentPadding: const EdgeInsets.only(left: 34, right: 22),
-            ),
-            SwitchListTile(
+          ),
+          SwitchListTile(
             value: _veganFilterSet,
             onChanged: (isSwitchSet) {
               setState(() {
@@ -127,11 +117,9 @@ class _FiltersScreenState extends State<FiltersScreen>{
             ),
             activeColor: Theme.of(context).colorScheme.tertiary,
             contentPadding: const EdgeInsets.only(left: 34, right: 22),
-            ),
-        ],),
+          ),
+        ],
       ),
     );
   }
-
 }
-
